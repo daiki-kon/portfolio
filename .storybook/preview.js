@@ -1,5 +1,6 @@
 import '../src/styles/globals.css';
 import * as NextImage from 'next/image';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 const OriginalNextImage = NextImage.default;
 
@@ -15,5 +16,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
   },
 };
