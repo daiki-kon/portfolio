@@ -11,7 +11,7 @@ const IconName = (props: IconNameProps) => {
     <>
       <div className="flex place-items-center flex-col gap-y-1 w-fit ">
         <Image
-          className="rounded-full"
+          className="mask mask-circle"
           src={iconSrc}
           alt="icon picture"
           width={150}
