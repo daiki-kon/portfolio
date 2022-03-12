@@ -18,7 +18,7 @@ const Header = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
     <>
-      <div className="navbar">
+      <div className="navbar bg-base-100">
         <div className="md:hidden navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
