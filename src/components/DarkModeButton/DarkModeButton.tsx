@@ -1,5 +1,4 @@
 import { BsSunFill, BsMoonFill } from 'react-icons/bs';
-import { useTheme } from 'next-themes';
 import useDarkMode from '../../hooks/useDarkMode';
 
 const DarkModeButton = () => {
