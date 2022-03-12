@@ -1,17 +1,13 @@
 import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 import { useTheme } from 'next-themes';
+import useDarkMode from '../../hooks/useDarkMode';
 
-type DarkModeButtonProps = {
-  isDarkMode: boolean;
-  onClickButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
-};
-
-const DarkModeButton = (props: DarkModeButtonProps) => {
-  const { isDarkMode, onClickButton } = props;
+const DarkModeButton = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
     <button
       className="btn btn-circle btn-outline btn-sm"
-      onClick={onClickButton}
+      onClick={() => toggleDarkMode()}
     >
       {isDarkMode === true ? <BsSunFill /> : <BsMoonFill />}
     </button>

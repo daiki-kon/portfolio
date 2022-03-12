@@ -47,10 +47,7 @@ const Header = () => {
               <li>
                 <a>Item 2</a>
               </li>
-              <DarkModeButton
-                isDarkMode={isDarkMode}
-                onClickButton={() => toggleDarkMode()}
-              />
+              <DarkModeButton />
             </ul>
           </div>
         </div>
@@ -70,10 +67,7 @@ const Header = () => {
         <div className="invisible md:visible navbar-end">
           <TempItems />
           {/* ダークモード切り替えボタン */}
-          <DarkModeButton
-            isDarkMode={isDarkMode}
-            onClickButton={() => toggleDarkMode()}
-          />
+          <DarkModeButton />
         </div>
       </div>
     </>
