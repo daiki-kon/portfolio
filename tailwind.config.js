@@ -7,4 +7,9 @@ module.exports = {
     themes: ['corporate', 'night'],
   },
   plugins: [require('daisyui')],
+  theme: {
+    container: {
+      center: true,
+    },
+  },
 };
