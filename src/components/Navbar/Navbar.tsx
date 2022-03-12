@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import useDarkMode from '../../hooks/useDarkMode';
 import DarkModeButton from '../DarkModeButton';
 
 const TempItems = () => (
@@ -14,6 +15,7 @@ const TempItems = () => (
 );
 
 const Header = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
     <>
       <div className="navbar">
@@ -45,7 +47,10 @@ const Header = () => {
               <li>
                 <a>Item 2</a>
               </li>
-              <DarkModeButton />
+              <DarkModeButton
+                isDarkMode={isDarkMode}
+                onClickButton={() => toggleDarkMode()}
+              />
             </ul>
           </div>
         </div>
@@ -65,7 +70,10 @@ const Header = () => {
         <div className="invisible md:visible navbar-end">
           <TempItems />
           {/* ダークモード切り替えボタン */}
-          <DarkModeButton />
+          <DarkModeButton
+            isDarkMode={isDarkMode}
+            onClickButton={() => toggleDarkMode()}
+          />
         </div>
       </div>
     </>

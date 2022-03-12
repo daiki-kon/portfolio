@@ -1,15 +1,19 @@
 import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 import { useTheme } from 'next-themes';
 
-const DarkModeButton = () => {
-  const { theme, setTheme } = useTheme();
+type DarkModeButtonProps = {
+  isDarkMode: boolean;
+  onClickButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
 
+const DarkModeButton = (props: DarkModeButtonProps) => {
+  const { isDarkMode, onClickButton } = props;
   return (
     <button
       className="btn btn-circle btn-outline btn-sm"
-      onClick={() => setTheme(theme === 'night' ? 'corporate' : 'night')}
+      onClick={onClickButton}
     >
-      {theme === 'night' ? <BsSunFill /> : <BsMoonFill />}
+      {isDarkMode === true ? <BsSunFill /> : <BsMoonFill />}
     </button>
   );
 };
