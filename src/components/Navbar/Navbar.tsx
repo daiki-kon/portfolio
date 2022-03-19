@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import useDarkMode from '../../hooks/useDarkMode';
 import DarkModeButton from '../DarkModeButton';
 
 const TempItems = () => (
@@ -15,10 +14,9 @@ const TempItems = () => (
 );
 
 const Header = () => {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 sticky top-0 z-50">
         <div className="md:hidden navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">

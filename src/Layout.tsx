@@ -4,9 +4,8 @@ import Navbar from './components/Navbar';
 const Layout: FC = ({ children }) => {
   return (
     <>
-      <nav className="sticky top-0 z-50">
-        <Navbar />
-      </nav>
+      <Navbar />
+
       <main>{children}</main>
     </>
   );
