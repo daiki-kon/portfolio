@@ -12,7 +12,7 @@ const CertificationSection = (props: CertificationSectionProps) => {
   return (
     <>
       <SectionTitle title="Certifications" />
-      <div className="mt-4 flex flex-row justify-center">
+      <div className="mt-4 flex flex-row justify-center p-4">
         {badgeImages.map((badge, index) => (
           <Image
             key={index}

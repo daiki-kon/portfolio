@@ -16,7 +16,7 @@ const AboutMeSection = (props: AboutMeSectionProps) => {
   return (
     <>
       <SectionTitle title="About Me" />
-      <div className="hero">
+      <div className="hero p-4">
         <div className="hero-content flex-col lg:flex-row">
           <IconName name={name} iconSrc={iconImageSrc} />
           <p className="grow-0 max-w-xl">{introduction}</p>
