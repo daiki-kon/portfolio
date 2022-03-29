@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import DarkModeButton from '../DarkModeButton';
 import AnchorLink from '../AnchorLink';
+import Link from 'next/link';
 
 const NavbarItems = () => (
   <>
@@ -61,16 +62,18 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-start md:navbar-center">
-          <a className="btn btn-ghost normal-case text-xl">
-            <div className="mr-2">Hiroki Kondo</div>
-            <Image
-              className="rounded-full"
-              src="/iconImage.jpeg"
-              alt="Picture of the author"
-              width={40}
-              height={40}
-            />
-          </a>
+          <Link href={'/'}>
+            <a className="btn btn-ghost normal-case text-xl">
+              <div className="mr-2">Hiroki Kondo</div>
+              <Image
+                className="rounded-full"
+                src="/iconImage.jpeg"
+                alt="Picture of the author"
+                width={40}
+                height={40}
+              />
+            </a>
+          </Link>
         </div>
 
         <div className="invisible md:visible navbar-end">

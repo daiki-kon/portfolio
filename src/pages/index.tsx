@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="container mx-auto lg:max-w-5xl mb-11">
-        <section id='aboutMe' className='scroll-mt-16 mt-11'>
+        <section id='aboutMe' className='scroll-mt-16 md:mt-11'>
           <AboutMeSection
             introduction={introduction}
             name={myName}
