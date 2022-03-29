@@ -25,7 +25,7 @@ const CertificationSection = (props: CertificationSectionProps) => {
         ))}
       </div>
       <div className="flex flex-col place-items-center p-4">
-        <ul className="list-disc w-fit">
+        <ul className="list-disc list-inside w-fit">
           {certifications.map((item, index) => (
             <li key={index} className="mt-2">
               {item.url === undefined ? (
