@@ -14,13 +14,15 @@ import { badgeImages, certifications } from '../data/Certifications';
 import { skills } from '../data/Skills';
 
 const Home: NextPage = () => {
+
   return (
     <>
       <Head>
         <title>Hiroki Kondo portfolio</title>
       </Head>
-      <main className="container mx-auto lg:max-w-5xl mb-11">
-        <section className="mt-11">
+
+      <div className="container mx-auto lg:max-w-5xl mb-11">
+        <section id='aboutMe' className='scroll-mt-16 mt-11'>
           <AboutMeSection
             introduction={introduction}
             name={myName}
@@ -29,17 +31,17 @@ const Home: NextPage = () => {
           />
         </section>
 
-        <section className="mt-11">
+        <section id="skills" className="scroll-mt-16 mt-11">
           <SkillSection skills={skills} />
         </section>
 
-        <section className="mt-11">
+        <section id="certifications" className="scroll-mt-16 mt-11">
           <CertificationSection
             badgeImages={badgeImages}
             certifications={certifications}
           />
         </section>
-      </main>
+      </div>
       <Footer />
     </>
   );

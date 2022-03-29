@@ -1,19 +1,34 @@
+import React from 'react';
 import Image from 'next/image';
 import DarkModeButton from '../DarkModeButton';
+import AnchorLink from '../AnchorLink';
 
-const TempItems = () => (
-  <ul className="menu menu-horizontal p-0">
+const NavbarItems = () => (
+  <>
     <li>
-      <a>Item 1</a>
+      <AnchorLink to={'/#aboutMe'} anchor="aboutMe">
+        <h1>AboutMe</h1>
+      </AnchorLink>
     </li>
-
     <li>
-      <a>Item 3</a>
+      <AnchorLink to={'/#skills'} anchor="skills">
+        <h1>Skills</h1>
+      </AnchorLink>
     </li>
-  </ul>
+    <li>
+      <AnchorLink to={'/#certifications'} anchor="certifications">
+        <h1>Certifications</h1>
+      </AnchorLink>
+    </li>
+    {/* <li>
+      <Link href={'works'}>
+        <a>Works</a>
+      </Link>
+    </li> */}
+  </>
 );
 
-const Header = () => {
+const Navbar = () => {
   return (
     <>
       <div className="navbar bg-base-100 sticky top-0 z-50">
@@ -39,12 +54,7 @@ const Header = () => {
               tabIndex={0}
               className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
+              <NavbarItems />
               <DarkModeButton />
             </ul>
           </div>
@@ -62,8 +72,11 @@ const Header = () => {
             />
           </a>
         </div>
+
         <div className="invisible md:visible navbar-end">
-          <TempItems />
+          <ul className="menu menu-horizontal p-0">
+            <NavbarItems />
+          </ul>
           {/* ダークモード切り替えボタン */}
           <DarkModeButton />
         </div>
@@ -72,4 +85,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
