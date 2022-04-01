@@ -12,8 +12,16 @@ import {
 } from '../data/AboutMe';
 import { badgeImages, certifications } from '../data/Certifications';
 import { skills } from '../data/Skills';
+import { QittaItems, QiitaOgp } from '../types/Qiita';
+import { getOgpMetadata } from '../utils/getOgpMetadata';
 
-const Home: NextPage = () => {
+type NextPageProps = {
+  qiitaLatestArticle: QiitaOgp & { url: string};
+}
+
+const Home: NextPage<NextPageProps> = ( props ) => {
+
+  const { qiitaLatestArticle } = props;
 
   return (
     <>
@@ -46,5 +54,27 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  // NOTE: QIITAのAPIは認証なしだとIP単位で制限があるみたいなので、クライアント側でfetchしたほうが良いかも
+  const endpoint = process.env.QITTA_API_ENDPOINT as string;
+  const userId = process.env.QITTA_USER_ID as string;
+
+  const res = await fetch(`${endpoint}//items?page=1&per_page=1&query=user:${userId}`);
+  const data = await res.json() as QittaItems;
+
+  const latestArticleUrl = data[0].url
+
+  const ogp = await getOgpMetadata(latestArticleUrl);
+
+  const props: NextPageProps = {
+    qiitaLatestArticle: {
+      url: latestArticleUrl,
+      ...ogp
+    }
+  }
+
+  return { props };
+}
 
 export default Home;
