@@ -1,4 +1,4 @@
-import { createRef, FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { UrlObject } from 'url';
@@ -14,9 +14,7 @@ const AnchorLink: FC<Props> = ({ children, to, anchor }) => {
     const hashChanged = (url: string) => {
       const hash = url.split('#')[1];
       if (hash !== anchor) return;
-      console.log(anchor);
       const elem = document.getElementById(anchor);
-
       if (elem) {
         elem.scrollIntoView({ behavior: 'smooth' });
       }
