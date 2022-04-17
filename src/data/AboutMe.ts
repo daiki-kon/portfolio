@@ -1,5 +1,5 @@
 export const introduction =
-  '愛知県出身。AWS、Terraform、React、Pythonを使用した業務経験がある。特にこれといった強みはないが、インフラからフロントエンドまで幅広く触ることができる。';
+  '愛知県出身。普段はAWS、Terraform、React、Python等を触ってます。特にこれといった強みはないですが、インフラからフロントエンドまで幅広く触ることができます。';
 
 export const myName = 'Hiroki Kondo';
 
