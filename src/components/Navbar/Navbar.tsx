@@ -80,7 +80,6 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">
             <NavbarItems />
           </ul>
-          {/* ダークモード切り替えボタン */}
           <DarkModeButton />
         </div>
       </div>

@@ -3,6 +3,7 @@ import * as NextImage from 'next/image';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Story } from '@storybook/react';
 import { ThemeProvider } from 'next-themes';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 const OriginalNextImage = NextImage.default;
 
@@ -14,7 +15,9 @@ Object.defineProperty(NextImage, 'default', {
 const withTheme = (Story: Story) => {
   return (
     <ThemeProvider>
-      <Story />
+      <MemoryRouterProvider>
+        <Story />
+      </MemoryRouterProvider>
     </ThemeProvider>
   );
 };
