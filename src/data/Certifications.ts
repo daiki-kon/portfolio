@@ -3,6 +3,7 @@ import { Certification } from '../types/Certification';
 export const badgeImages: string[] = [
   '/aws-certified-solutions-architect-associate.png',
   '/aws-certified-developer-associate.png',
+  '/aws-certified-sysops-administrator-associate.png',
 ];
 
 export const certifications: Certification[] = [
@@ -13,6 +14,10 @@ export const certifications: Certification[] = [
   {
     name: 'AWS Certified Developer - Associate',
     url: 'https://www.credly.com/badges/ba57e75b-8dd3-49c8-8148-ad3a76e3a0bb/public_url',
+  },
+  {
+    name: 'AWS Certified SysOps Administrator - Associate',
+    url: 'https://www.credly.com/badges/93a79c70-8c9d-4381-af66-e7041f0e932f/public_url',
   },
   {
     name: 'ORACLE MASTER Bronze Certified Oracle Database 11g - JPN',
