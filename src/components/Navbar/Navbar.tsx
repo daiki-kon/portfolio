@@ -17,8 +17,8 @@ const NavbarItems = () => (
       </AnchorLink>
     </li>
     <li>
-      <AnchorLink to={'/#certifications'} anchor="certifications">
-        <h1>Certifications</h1>
+      <AnchorLink to={'/#qualifications'} anchor="qualifications">
+        <h1>Qualifications</h1>
       </AnchorLink>
     </li>
     {/* <li>

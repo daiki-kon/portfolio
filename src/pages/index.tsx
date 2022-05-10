@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import AboutMeSection from '../components/AboutMeSection';
-import CertificationSection from '../components/CertificationSection';
+import QualificationSection from '../components/QualificationSection';
 import Footer from '../components/Footer';
 import SkillSection from '../components/SkillSection';
 import {
@@ -10,7 +10,7 @@ import {
   myName,
   snsAccounts,
 } from '../data/AboutMe';
-import { badgeImages, certifications } from '../data/Certifications';
+import { badgeImages, qualifications } from '../data/Qualifications';
 import { skills } from '../data/Skills';
 import { QittaItems, QiitaOgp } from '../types/Qiita';
 import { getOgpMetadata } from '../utils/getOgpMetadata';
@@ -43,10 +43,10 @@ const Home: NextPage<NextPageProps> = ( props ) => {
           <SkillSection skills={skills} />
         </section>
 
-        <section id="certifications" className="scroll-mt-16 mt-11">
-          <CertificationSection
+        <section id="qualifications" className="scroll-mt-16 mt-11">
+          <QualificationSection
             badgeImages={badgeImages}
-            certifications={certifications}
+            qualifications={qualifications}
           />
         </section>
       </div>

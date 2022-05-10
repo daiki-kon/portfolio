@@ -1,17 +1,17 @@
 import SectionTitle from '../SectionTitle';
 import Image from 'next/image';
-import { Certification } from '../../types/Certification';
+import { Qualification } from '../../types/Qualification';
 
-type CertificationSectionProps = {
+type QualificationSectionProps = {
   badgeImages: string[];
-  certifications: Certification[];
+  qualifications: Qualification[];
 };
 
-const CertificationSection = (props: CertificationSectionProps) => {
-  const { badgeImages, certifications } = props;
+const QualificationSection = (props: QualificationSectionProps) => {
+  const { badgeImages, qualifications } = props;
   return (
     <>
-      <SectionTitle title="Certifications" />
+      <SectionTitle title="Qualifications" />
       <div className="mt-4 flex flex-row justify-center p-4">
         {badgeImages.map((badge, index) => (
           <Image
@@ -26,7 +26,7 @@ const CertificationSection = (props: CertificationSectionProps) => {
       </div>
       <div className="flex flex-col place-items-center p-4">
         <ul className="list-disc list-inside w-fit">
-          {certifications.map((item, index) => (
+          {qualifications.map((item, index) => (
             <li key={index} className="mt-2">
               {item.url === undefined ? (
                 item.name
@@ -43,4 +43,4 @@ const CertificationSection = (props: CertificationSectionProps) => {
   );
 };
 
-export default CertificationSection;
+export default QualificationSection;

@@ -1,4 +1,4 @@
-import { Certification } from '../types/Certification';
+import { Qualification } from '../types/Qualification';
 
 export const badgeImages: string[] = [
   '/aws-certified-solutions-architect-associate.png',
@@ -6,7 +6,7 @@ export const badgeImages: string[] = [
   '/aws-certified-sysops-administrator-associate.png',
 ];
 
-export const certifications: Certification[] = [
+export const qualifications: Qualification[] = [
   {
     name: 'AWS Certified Solutions Architect - Associate',
     url: 'https://www.credly.com/badges/cc68c334-6436-48eb-9d27-cab7d8b7a183/public_url',
@@ -24,6 +24,6 @@ export const certifications: Certification[] = [
     url: 'https://www.credly.com/badges/af97d336-8a58-4b66-a9b0-eda99443f4b0/public_url',
   },
   {
-    name: '応用情報技術者試験　合格',
+    name: '応用情報技術者試験',
   },
 ];
