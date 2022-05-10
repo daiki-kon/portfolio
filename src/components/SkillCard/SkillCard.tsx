@@ -1,6 +1,5 @@
 import React from 'react';
 import { IconContext, IconType } from 'react-icons';
-import useDarkMode from '../../hooks/useDarkMode';
 
 type SkillCardProps = {
   skillName: string;
@@ -10,13 +9,10 @@ type SkillCardProps = {
 
 const SkillCard = (props: SkillCardProps) => {
   const { skillName, icon, description } = props;
-  const { isDarkMode } = useDarkMode();
 
-  const cardStyle =
-    isDarkMode === true ? 'bg-neutral text-neutral-content' : 'shadow-xl';
   return (
     <>
-      <div className={'card w-64 rounded-lg ' + cardStyle}>
+      <div className="card w-64 rounded-lg shadow-xl dark:bg-neutral dark:text-neutral-content">
         <IconContext.Provider value={{ size: '100' }}>
           <figure className="px-10 pt-10">{React.createElement(icon)}</figure>
         </IconContext.Provider>

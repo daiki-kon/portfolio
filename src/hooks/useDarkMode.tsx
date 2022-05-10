@@ -16,6 +16,9 @@ const useDarkMode = (): useDarkModeResponse => {
 
   const toggleDarkMode = () => {
     setTheme(theme === 'night' ? 'corporate' : 'night');
+    document.documentElement.classList.contains('dark') === true
+      ? document.documentElement.classList.remove('dark')
+      : document.documentElement.classList.add('dark');
   };
 
   return { isDarkMode, toggleDarkMode };
