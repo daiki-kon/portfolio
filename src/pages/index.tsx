@@ -16,11 +16,10 @@ import { QittaItems, QiitaOgp } from '../types/Qiita';
 import { getOgpMetadata } from '../utils/getOgpMetadata';
 
 type NextPageProps = {
-  qiitaLatestArticle: QiitaOgp & { url: string};
-}
+  qiitaLatestArticle: QiitaOgp & { url: string; updatedAtString: string };
+};
 
-const Home: NextPage<NextPageProps> = ( props ) => {
-
+const Home: NextPage<NextPageProps> = (props) => {
   const { qiitaLatestArticle } = props;
 
   return (
@@ -30,7 +29,7 @@ const Home: NextPage<NextPageProps> = ( props ) => {
       </Head>
 
       <div className="container mx-auto lg:max-w-5xl mb-11">
-        <section id='aboutMe' className='scroll-mt-16 md:mt-11'>
+        <section id="aboutMe" className="scroll-mt-16 md:mt-11">
           <AboutMeSection
             introduction={introduction}
             name={myName}
@@ -60,19 +59,27 @@ export async function getServerSideProps() {
   const endpoint = process.env.QITTA_API_ENDPOINT as string;
   const userId = process.env.QITTA_USER_ID as string;
 
-  const res = await fetch(`${endpoint}//items?page=1&per_page=1&query=user:${userId}`);
-  const data = await res.json() as QittaItems;
+  const res = await fetch(
+    `${endpoint}//items?page=1&per_page=1&query=user:${userId}`
+  );
+  const data = (await res.json()) as QittaItems;
 
-  const latestArticleUrl = data[0].url
+  if (data.length <= 0) {
+    return {};
+  }
+
+  const latestArticleUrl = data[0].url;
+  const updatedAtString = data[0].updated_at;
 
   const ogp = await getOgpMetadata(latestArticleUrl);
 
   const props: NextPageProps = {
     qiitaLatestArticle: {
       url: latestArticleUrl,
-      ...ogp
-    }
-  }
+      updatedAtString,
+      ...ogp,
+    },
+  };
 
   return { props };
 }
