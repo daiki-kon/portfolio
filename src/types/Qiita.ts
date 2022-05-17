@@ -5,7 +5,9 @@ export type QittaItems = {
 }[];
 
 export type QiitaOgp = {
-  title: string | undefined;
-  imageUrl: string | undefined;
-  description: string | undefined;
+  title: string;
+  imageUrl: string;
+  description: string;
 };
+
+export type QiitaArticle = QiitaOgp & { url: string; updatedAtString: string };
