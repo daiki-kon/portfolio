@@ -12,6 +12,7 @@ const useDarkMode = (): useDarkModeResponse => {
 
   useEffect(() => {
     setIsDarkMode(theme === 'night' ? true : false);
+    theme === 'night' && document.documentElement.classList.add('dark');
   }, [theme]);
 
   const toggleDarkMode = () => {
