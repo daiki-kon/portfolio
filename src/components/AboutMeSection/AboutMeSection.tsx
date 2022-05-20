@@ -1,5 +1,8 @@
+import { QiitaArticle } from '../../types/Qiita';
 import IconName from '../IconName';
+import LinkCard from '../LinkCard';
 import SectionTitle from '../SectionTitle';
+import { formatDate } from '../../utils/date';
 
 type AboutMeSectionProps = {
   introduction: string;
@@ -9,10 +12,12 @@ type AboutMeSectionProps = {
     name: string;
     url: string;
   }[];
+  qiitaArticle: QiitaArticle | undefined;
 };
 
 const AboutMeSection = (props: AboutMeSectionProps) => {
-  const { introduction, name, iconImageSrc, snsAccounts } = props;
+  const { introduction, name, iconImageSrc, snsAccounts, qiitaArticle } = props;
+
   return (
     <>
       <SectionTitle title="About Me" />
@@ -24,16 +29,32 @@ const AboutMeSection = (props: AboutMeSectionProps) => {
       </div>
       <h2 className="text-2xl text-center mt-2">SNS</h2>
 
-      {/* TODO: 縦を揃える */}
-      {/* TODO: Githubの草、Qiitaの最新の記事取得 */}
-      {snsAccounts.map((account, index) => (
-        <div key={index} className="flex justify-center items-center">
-          <p className="text-lg font-bold mr-2">{account.name} :</p>
-          <a href={account.url} className="underline">
-            {account.url}
+      <div className="p-4">
+        <div className="flex justify-center">
+          <p className="text-lg font-bold mr-2">{snsAccounts[0].name} :</p>
+          <a href={snsAccounts[0].url} className="underline">
+            {snsAccounts[0].url}
           </a>
         </div>
-      ))}
+
+        {qiitaArticle !== undefined && (
+          <div className="ml-1">
+            <p className="mb-2">最新の記事</p>
+            <LinkCard
+              {...qiitaArticle}
+              updateAt={formatDate(new Date(qiitaArticle.updatedAtString))}
+              smallImage={'/qiita-favicon.png'}
+            />
+          </div>
+        )}
+
+        <div className="flex justify-center mt-4">
+          <p className="text-lg font-bold mr-2">{snsAccounts[1].name} :</p>
+          <a href={snsAccounts[1].url} className="underline">
+            {snsAccounts[1].url}
+          </a>
+        </div>
+      </div>
     </>
   );
 };
