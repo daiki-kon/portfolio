@@ -32,7 +32,12 @@ const AboutMeSection = (props: AboutMeSectionProps) => {
       <div className="p-4">
         <div className="flex justify-center">
           <p className="text-lg font-bold mr-2">{snsAccounts[0].name} :</p>
-          <a href={snsAccounts[0].url} className="underline">
+          <a
+            href={snsAccounts[0].url}
+            className="underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {snsAccounts[0].url}
           </a>
         </div>
@@ -50,7 +55,12 @@ const AboutMeSection = (props: AboutMeSectionProps) => {
 
         <div className="flex justify-center mt-4">
           <p className="text-lg font-bold mr-2">{snsAccounts[1].name} :</p>
-          <a href={snsAccounts[1].url} className="underline">
+          <a
+            href={snsAccounts[1].url}
+            className="underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {snsAccounts[1].url}
           </a>
         </div>

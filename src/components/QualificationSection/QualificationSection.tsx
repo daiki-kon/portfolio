@@ -31,7 +31,12 @@ const QualificationSection = (props: QualificationSectionProps) => {
               {item.url === undefined ? (
                 item.name
               ) : (
-                <a href={item.url} className="underline">
+                <a
+                  href={item.url}
+                  className="underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {item.name}
                 </a>
               )}
