@@ -12,11 +12,11 @@ import {
 } from '../data/AboutMe';
 import { badgeImages, qualifications } from '../data/Qualifications';
 import { skills } from '../data/Skills';
-import { QittaItems, QiitaOgp } from '../types/Qiita';
+import { QittaItems, QiitaArticle } from '../types/Qiita';
 import { getOgpMetadata } from '../utils/getOgpMetadata';
 
 type NextPageProps = {
-  qiitaLatestArticle: QiitaOgp & { url: string; updatedAtString: string };
+  qiitaLatestArticle: QiitaArticle | undefined;
 };
 
 const Home: NextPage<NextPageProps> = (props) => {
@@ -35,6 +35,7 @@ const Home: NextPage<NextPageProps> = (props) => {
             name={myName}
             iconImageSrc={iconImageSrc}
             snsAccounts={snsAccounts}
+            qiitaArticle={qiitaLatestArticle}
           />
         </section>
 
@@ -65,13 +66,21 @@ export async function getServerSideProps() {
   const data = (await res.json()) as QittaItems;
 
   if (data.length <= 0) {
-    return {};
+    return {
+      qiitaLatestArticle: undefined,
+    };
   }
 
   const latestArticleUrl = data[0].url;
   const updatedAtString = data[0].updated_at;
 
   const ogp = await getOgpMetadata(latestArticleUrl);
+
+  if (ogp === undefined) {
+    return {
+      qiitaLatestArticle: undefined,
+    };
+  }
 
   const props: NextPageProps = {
     qiitaLatestArticle: {
